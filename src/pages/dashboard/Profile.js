@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { CaretLeft } from "phosphor-react";
-import ProfileForm from "../../../sections/dashboard/Settings/ProfileForm";
+import ProfileForm from "../../sections/setting/ProfileForm";
 
 const Profile = () => {
   return (
@@ -38,7 +38,7 @@ const Profile = () => {
         </Box>
 
         {/* Right Pane */}
-        <Box
+        {/* <Box
           sx={{
             height: "100%",
             width: "calc(100vw - 420px )",
@@ -48,7 +48,7 @@ const Profile = () => {
                 : theme.palette.background.paper,
             borderBottom: "6px solid #0162C4",
           }}
-        ></Box>
+        ></Box> */}
       </Stack>
     </>
   );

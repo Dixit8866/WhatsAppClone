@@ -17,10 +17,11 @@ import useSettings from "../../hooks/useSettings";
 import { Nav_Buttons, Profile_Menu } from "../../data";
 import { faker } from "@faker-js/faker";
 import { Gear } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
   const theme = useTheme();
-
+  const navigate = useNavigate();
   const [selected, setSelected] = useState(0);
   const { onToggleMode } = useSettings();
 
@@ -31,6 +32,25 @@ const SideBar = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const getPath = (index) => {
+    switch (index) {
+      case 0:
+        return "/app";
+
+      case 1:
+        return "/group";
+
+      case 2:
+        return "/call";
+
+      case 3:
+        return "/settings";
+
+      default:
+        break;
+    }
   };
 
   return (
@@ -86,6 +106,7 @@ const SideBar = () => {
                 <IconButton
                   onClick={() => {
                     setSelected(el.index);
+                    navigate(getPath(el.index));
                   }}
                   sx={{
                     width: "mx-content",
@@ -123,6 +144,7 @@ const SideBar = () => {
                       : theme.palette.text.primary,
                 }}
                 onClick={() => {
+                  navigate(getPath(3));
                   setSelected(3);
                 }}
               >
